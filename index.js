@@ -1,5 +1,7 @@
 const { nextISSTimesForMyLocation } = require('./nextISSTimesForMyLocation');
-
+// If there are no errors, this will take each time object from the array of the JSON of time objects given,
+// and create a new date object before setting the universal time by the seconds given in risetime.
+// Finally, logs the date and durations(also in seconds) to the console.
 nextISSTimesForMyLocation((error, timesArray) => {
   if (error) {
     console.log("In the moment of truth an error happened: ", error);
@@ -11,22 +13,3 @@ nextISSTimesForMyLocation((error, timesArray) => {
     console.log(`Next pass at ${datetime} for ${duration} seconds!`);
   }
 });
-
-
-/*
-fetchISSFlyOverTimes(object, (err, times) => {
-  if (err) console.log('AAAAAAGH ', err);
-  console.log(times);
-});
-fetchCoordsByIP('NOT PUTTING MY IP UP THERE HAHA', (error, coord) => {
-  if (error) {
-    console.log("AAAAAAAAAAH", error);
-    return;
-  }
-  if (coord) console.log('coords: ', coord);
-});
-fetchMyIP((error, ip) => {
-  if (error) console.log("AAAARGH!:", error);
-  if (ip) console.log(ip);
-});
-*/
