@@ -1,13 +1,18 @@
-const { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation } = require('./fetchMyIP');
+const { nextISSTimesForMyLocation } = require('./nextISSTimesForMyLocation');
 
-const object = { latitude: '49.2760', longitude: '-123.13000' };
-
-nextISSTimesForMyLocation((error, passTimes) => {
+nextISSTimesForMyLocation((error, timesArray) => {
   if (error) {
-    return console.log('There was definitely a problem, check for meteors or maybe it was ', error);
+    console.log("In the moment of truth an error happened: ", error);
   }
-  if (passTimes) console.log(passTimes);
+  for (const time of timesArray) {
+    const datetime = new Date(0);
+    datetime.setUTCSeconds(time.risetime);
+    const duration = time.duration;
+    console.log(`Next pass at ${datetime} for ${duration} seconds!`);
+  }
 });
+
+
 /*
 fetchISSFlyOverTimes(object, (err, times) => {
   if (err) console.log('AAAAAAGH ', err);
