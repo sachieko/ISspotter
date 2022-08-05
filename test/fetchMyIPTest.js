@@ -1,4 +1,4 @@
-const fetchMyIP = require('../fetchMyIP');
+const { fetchMyIP } = require('../fetchMyIP');
 const assert = require('chai').assert;
 describe('#fetchMyIP function tests:', () => {
   it('should return something that looks like an IP address', () => {
