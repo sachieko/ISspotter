@@ -9,3 +9,4 @@ The fly-over times as an array if successful [{ risetime: number, duration: numb
 const nextISSTimesForMyLocation = (callback) => {
 
 };
+module.exports = nextISSTimesForMyLocation;
