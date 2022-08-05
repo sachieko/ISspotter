@@ -1,3 +1,5 @@
+// Takes in an ipstring and makes a call to ipwho.is API to get coordinates for that Ip address
+// It then returns an object with the latitude and longitude as key-value pairs.
 const request = require('request');
 const fetchCoordsByIP = (ipString, callback) => {
   request(`https://ipwho.is/${ipString}`, (error, response, body) => {

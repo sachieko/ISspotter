@@ -2,6 +2,7 @@
 // Input: - A callback (return error or IP as a string)
 const request = require('request');
 const fetchCoordsByIP = require('./fetchCoordsByIP');
+const fetchISSFlyOverTimes = require('./fetchISSFlyOverTimes');
 const fetchMyIP = (callback) => {
   request(`https://api.ipify.org?format=json`, (error, response, body) => {
     if (error) {
@@ -13,11 +14,11 @@ const fetchMyIP = (callback) => {
       callback(Error(msg), null);
       return;
     }
-    if (body) {
+    if (JSON.parse(body)) {
       let string = JSON.parse(body).ip;
       callback(null, string);
     }
   });
 };
 
-module.exports = { fetchMyIP, fetchCoordsByIP };
+module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes };

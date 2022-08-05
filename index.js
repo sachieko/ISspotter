@@ -1,4 +1,4 @@
-const { fetchMyIP, fetchCoordsByIP } = require('./fetchMyIP');
+const { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes } = require('./fetchMyIP');
 
 /*
 fetchCoordsByIP('NOT PUTTING MY IP UP THERE HAHA', (error, coord) => {
