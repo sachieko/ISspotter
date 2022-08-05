@@ -3,7 +3,6 @@
 const request = require('request');
 const fetchCoordsByIP = require('./fetchCoordsByIP');
 const fetchISSFlyOverTimes = require('./fetchISSFlyOverTimes');
-const nextISSTimesForMyLocation = require('./nextISSTimesForMyLocation');
 const fetchMyIP = (callback) => {
   request(`https://api.ipify.org?format=json`, (error, response, body) => {
     if (error) {
@@ -22,4 +21,4 @@ const fetchMyIP = (callback) => {
   });
 };
 
-module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes, nextISSTimesForMyLocation };
+module.exports = { fetchMyIP, fetchCoordsByIP, fetchISSFlyOverTimes };
